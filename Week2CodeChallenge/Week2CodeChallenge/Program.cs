@@ -18,7 +18,8 @@ namespace Week2CodeChallenge
 
             //call LetterCounter
             LetterCounter('i', "I love biscuts and gravy. It's the best breakfast ever.");
-           
+            LetterCounter('n', "Never gonna give you up. Never gonna let you down.");
+            LetterCounter('s', "Sally sells seashells down by the sheashore. She's from Sussex.");
             //ReadKey to keep the console open
             Console.ReadKey();
         }
@@ -53,17 +54,26 @@ namespace Week2CodeChallenge
         {
             int numLetter = 0;
             int upLetter = 0;
+            int lowLetter = 0;
            
             for (int i = 0; i < inString.Length; i++)
             {
-                if (inString.ToLower().Contains(letter))
+                if (inString.Contains(letter.ToString().ToLower()))
                 {
-                    numLetter++;
+                    lowLetter++;
+                   
+                }
+                if (inString.Contains(letter.ToString().ToUpper()))
+                {
+                    upLetter++;
+                    
                 }
                 
             }
+            numLetter = lowLetter + upLetter;
             Console.WriteLine("Input: " + inString);
-            Console.WriteLine("Number of lowercase " + letter);
+            Console.WriteLine("Number of lowercase " + lowLetter);
+            Console.WriteLine("Number of uppercase " + upLetter);
             Console.WriteLine("Total number of " + numLetter);
         }
 
